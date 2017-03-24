@@ -1,1 +1,16 @@
-
+<div class="container">
+  <div class="row">
+    <h1><%= @run.name %></h1>
+    <h3><%= @run.area.resort.name %> | <%= @run.area.name %> || <%= @run.area.resort.country.name %></h3>
+      <p><strong>Niveau technique </strong><%= @run.technic %></p>
+      <p><strong>Niveau physique </strong><%= @run.physical %></p>
+      <p><strong>Engagement </strong><%= @run.engagement %></p>
+      <p><strong>Type de run </strong><%= @run.run_type %></p>
+      <p><strong>Meilleur neige </strong><%= @run.best_snow %></p>
+      <p><strong>Meilleur periode </strong><%= @run.best_time %></p>
+      <p><strong>Expo  </strong><%= @run.expo %></p>
+      <p><strong>Altitude départ </strong><%= @run.alt_start %></p>
+      <p><strong>Altutide d'arrivée </strong><%= @run.alt_finish %></p>
+      <p><%= @run.description %></p>
+  </div>
+</div>

@@ -5,13 +5,25 @@
         <%= f.input :name %>
         <%= f.association :resort  %>
         <%= f.association :area %>
-        <%= f.input :technic, collection: 1..6, as: :radio_buttons %>
-        <%= f.input :physical, collection: 1..6, as: :radio_buttons %>
-        <%= f.input :engagement %>
-        <%= f.input :type %>
-        <%= f.input :best_snow %>
-        <%= f.input :best_time %>
-        <%= f.input :expo %>
+        <div class="form-group">
+          <div class="form-inline">
+            <%= f.input :technic, collection: 1..6, as: :radio_buttons %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-inline">
+            <%= f.input :physical, collection: 1..6, as: :radio_buttons %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-inline">
+            <%= f.input :engagement, collection: ['Faible','Moyen','Fort','Pas de sorties'], as: :radio_buttons %>
+            </div>
+        </div>
+        <%= f.input :run_type, collection: ['Couloir', 'Combe', 'Forêt','Fort','Mixt','Grande pentes'], as: :radio_buttons %>
+        <%= f.input :best_snow, collection: ['Jan','Fév','Mar','Avr','Mai','Jui','Jul','Aou','Sep','Oct','Nov','Oct','Nov','Dec'], as: :check_boxes %>
+        <%= f.input :best_time, collection: ['Jan','Fév','Mar','Avr','Mai','Jui','Jul','Aou','Sep','Oct','Nov','Oct','Nov','Dec'], as: :check_boxes %>
+        <%= f.input :expo, collection: ['N','E','S','W'], as: :check_boxes %>
         <%= f.input :alt_start %>
         <%= f.input :alt_finish %>
         <%= f.input :description %>
