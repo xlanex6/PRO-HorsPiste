@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319124423) do
+ActiveRecord::Schema.define(version: 20170324130748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "resort_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resort_id"], name: "index_areas_on_resort_id", using: :btree
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resorts", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_resorts_on_country_id", using: :btree
+  end
+
+  create_table "runs", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "area_id"
+    t.integer  "technic"
+    t.integer  "physical"
+    t.string   "engagement"
+    t.string   "type"
+    t.string   "best_snow"
+    t.string   "best_time"
+    t.string   "expo"
+    t.integer  "alt_start"
+    t.integer  "alt_finish"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "resort_id"
+    t.index ["area_id"], name: "index_runs_on_area_id", using: :btree
+    t.index ["resort_id"], name: "index_runs_on_resort_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +74,8 @@ ActiveRecord::Schema.define(version: 20170319124423) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "areas", "resorts"
+  add_foreign_key "resorts", "countries"
+  add_foreign_key "runs", "areas"
+  add_foreign_key "runs", "resorts"
 end
