@@ -8,8 +8,8 @@
           <% @runs.each do |run| %>
             <%= link_to run_path(run) do %>
               <li>
-                <p class="run-name"><%= run.name %></p>
-                <p class="run-area"><%= run.area.name %></p>
+                <h1 class="run-name"><%= run.name %></h1>
+                <h4 class="run-area"><%= run.area.name %></h4>
                 <p class="run-resort"><%= run.area.resort.name %></p></li>
             <% end %>
           <% end %>

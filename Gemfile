@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 
 gem 'country_select', '~> 3.0'
+gem 'listjs', '~> 0.1.0'
 
 group :development, :test do
   gem 'binding_of_caller'
