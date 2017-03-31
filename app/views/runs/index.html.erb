@@ -1,13 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <ul>
-        <% @runs.each do |run| %>
-          <%= link_to run_path(run) do %>
-            <li><%= run.name %> - <%= run.area.name %> - <%= run.area.resort.name %></li>
+      <div id="run-list">
+        <input type="text" class="fuzzy-search">
+        <button class="sort" data-sort="run-name">Sort by run</button>
+        <ul class="list">
+          <% @runs.each do |run| %>
+            <%= link_to run_path(run) do %>
+              <li>
+                <p class="run-name"><%= run.name %></p>
+                <p class="run-area"><%= run.area.name %></p>
+                <p class="run-resort"><%= run.area.resort.name %></p></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
